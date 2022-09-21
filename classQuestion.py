@@ -15,8 +15,7 @@ class Question():
         Функция добавления очков за правильный ответ
         :return: Кол-во очков
         """
-        for i in range(len(get_question())):
-            complexity = self.complexity_question
+        complexity = self.complexity_question
         return  int(complexity) * 10
 
 
@@ -54,11 +53,7 @@ class Question():
         else:
             return f'Ответ неверный, верный ответ {self.the_correct_answer}'
 
-    def list_question(self) -> list:
-        self.a, self.b, self.c, self.d, self.e = get_question()
-        question = [self.a, self.b, self.c, self.d, self.e]
-        random.shuffle(question)
-        return question
+
 
 
     def statistic(self , list_points = []) -> int:

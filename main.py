@@ -2,16 +2,16 @@ import random
 from load_question import get_question
 from classQuestion import *
 
-
+def list_question() -> list:
+    question_list = []
+    list_q = get_question()
+    random.shuffle(list_q)
+    for i in range(len(list_q)):
+        question_list.append(Question(list_q[i]['q'], list_q[i]['a'], list_q[i]['d']))
+    return question_list
 
 def main(count = 0):
-    a = Question(get_question()[0]['q'], get_question()[0]['a'], get_question()[0]['d'])
-    b = Question(get_question()[1]['q'], get_question()[1]['a'], get_question()[1]['d'])
-    c = Question(get_question()[2]['q'], get_question()[2]['a'], get_question()[2]['d'])
-    d = Question(get_question()[3]['q'], get_question()[3]['a'], get_question()[3]['d'])
-    e = Question(get_question()[4]['q'], get_question()[4]['a'], get_question()[4]['d'])
-    question = [a, b, c, d, e]
-    for i in question:
+    for i in list_question():
         print(i.build_question())
         i.user_response = input('Введите ваш ответ')
         if i.is_correct():
@@ -23,3 +23,4 @@ def main(count = 0):
 
 if __name__ == "__main__":
 	main()
+

@@ -8,3 +8,4 @@ def get_question() -> list[dict[str, str]]:
         file = json.load(file)
         return file
 
+print(get_question())
